@@ -1,0 +1,9 @@
+{
+    "port": 5222,
+    "domain": "localhost",
+    "debug": true,
+    "tls": {
+       "keyPath": "/etc/xmpp-server/tls/localhost-key.pem",
+       "certPath": "/etc/xmpp-server/tls/localhost-cert.pem"
+    }
+}

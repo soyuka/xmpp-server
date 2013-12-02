@@ -1,0 +1,10 @@
+{
+    "port": 5222,
+    "domain": "localhost",
+    "log" : {
+    	"color": "auto",
+		"level": {
+			"*": "debug"
+		}
+    }
+}
