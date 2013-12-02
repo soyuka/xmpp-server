@@ -2,6 +2,9 @@
 
 Useful links :
 * https://github.com/kartikrustagi/nodejs-xmpp-server
+* https://github.com/brikteknologier/seraph
+* https://github.com/brikteknologier/seraph-model
+* https://github.com/node-xmpp/
 
 Currently into development.
 
