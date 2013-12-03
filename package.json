@@ -3,19 +3,24 @@
   "version": "0.0.1",
   "description": "Node XMPP Server",
   "main": "node-xmpp-server.js",
-  "private" : true,
+  "private": true,
   "dependencies": {
-    "colors": "~0.6.2",
     "commander": "~2.1.0",
     "jsonfile": "~1.1.1",
     "ltx": "~0.3.2",
     "node-xmpp": "~0.11.0",
     "node-stringprep": "~0.1.8",
     "underscore": "~1.5.2",
-    "node-xmpp-server": "~0.2.2",
-    "redis": "~0.9.1"
+    "redis": "~0.9.1",
+    "seraph": "~0.9.4",
+    "caterpillar": "~2.0.6",
+    "caterpillar-filter": "~2.0.3",
+    "caterpillar-human": "~2.1.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
   "scripts": {
     "test": "node test/index.js"
   },

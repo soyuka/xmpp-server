@@ -1,4 +1,4 @@
-var server = require('./lib/server')
+var server = require('./core/server')
   , _ = require('underscore')
   , jf = require('jsonfile')
   , config = jf.readFileSync("./config.json");

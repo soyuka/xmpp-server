@@ -4,7 +4,7 @@
 var xmpp = require('node-xmpp')
   , _ = require('underscore')
   , jf = require('jsonfile')
-  , config = jf.readFileSync("../config.json");
+  , config = jf.readFileSync( require('path').resolve(__dirname, "..", "config.json"));
 
   config = _.extend(config, {root : require('path').resolve(__dirname, '..')});
 /**
@@ -55,6 +55,8 @@ var xmpp = require('node-xmpp')
  */
 
 var cl = new xmpp.Client({ jid: 'soyuka@localhost', password: 'password', 'host': 'localhost', 'port': config.port });
+
+console.log(cl);
 
 cl.on('online', function() {
     console.log('ONLINE!!! YIHAA')

@@ -6,71 +6,68 @@ var xmpp = require('node-xmpp');
  //client.socket.remoteAddress, client.streamId
 
 module.exports = function(server, config) {
-    config = config.log;
-
-    var logger = require('./nlogger'), c = logger.logger("Client", config), s = logger.logger("Server", config);
 
     // Config contains the configuration for the logger facility!
     // The logger relies purely on events... 
     // From there, we can access and listen to events on all objects linked to that server, including the router, the session manager, the S2S router, the connections... etc.
     server.on("connect", function(client) {
-        c.debug("Connected");
+        server.logger.log("debug", "Connected");
 
         client.on('session-started', function() {
-            c.debug("Session-started");
+            server.logger.log("debug", "Session-started");
         });
 
         client.on('authenticate', function(opts) {
-            c.debug('Authenticate');
+            server.logger.log("debug", 'Authenticate');
         });
 
         client.on('auth-success', function(jid) {
-            c.debug("Auth-success", jid);
+            server.logger.log("debug", "Auth-success", jid);
         });
 
         client.on('auth-failure', function(jid) {
-            c.debug("Auth Failure " + jid);
+            server.logger.log("debug", "Auth Failure " + jid);
         });
 
         client.on("register", function(opts, cb) {
-            c.debug("Register");
+            server.logger.log("debug", "Register");
         });
 
         client.on('registration-success', function(jid) {
-            c.debug("Registration Success " + jid);
+            server.logger.log("debug", "Registration Success " + jid);
         });
 
         client.on('registration-failure', function(jid) {
-            c.debug("Registration Failure " + jid);
+            server.logger.log("debug", "Registration Failure " + jid);
         });
 
         client.on('online', function() {
-            c.debug("Online " + client.jid);
+            server.logger.log("debug", "Online " + client.jid);
         });
 
         client.on('stanza', function(stanza) {
-            c.debug("Stanza", stanza);
+            server.logger.log("debug", "Stanza", stanza);
         });
 
         client.on('disconnect', function() {
-            c.debug("Disconnect");
+            server.logger.log("debug", "Disconnect");
         });
     });
     
     server.on("s2sReady", function(s2s) {
-        s.info("S2S Ready");
+        server.logger.log("debug", "S2S Ready");
         s2s.on("newStream", function(stream) {
             console.log("New Stream");
         });
     });
     
     server.on("c2sRoutersReady", function(router) {
-        s.info("C2S Router ready");
+        server.logger.log("debug", "C2S Router ready");
        // debug('server', null, "C2S Router Ready");
     });
 
     server.on("ready", function(config) {
-        s.info("Server is now ready on host", config.domain, "and listening on port", config.port);
+        server.logger.debug("Server is now ready on host", config.domain, "and listening on port", config.port);
     })
     
 }

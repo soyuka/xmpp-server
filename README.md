@@ -5,6 +5,7 @@ Useful links :
 * https://github.com/brikteknologier/seraph
 * https://github.com/brikteknologier/seraph-model
 * https://github.com/node-xmpp/
+* https://github.com/dodo/Lightstream
 
 Currently into development.
 
